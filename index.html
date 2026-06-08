@@ -49,9 +49,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 5%;
             max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap; /* Agar rapi di HP */
         }
 
         .logo {
@@ -79,6 +80,7 @@
             text-decoration: none;
             font-weight: 400;
             transition: 0.3s;
+            font-size: 0.9rem;
         }
 
         .nav-links a:hover { color: var(--primary); }
@@ -90,7 +92,7 @@
             align-items: center;
             justify-content: space-between;
             background: linear-gradient(135deg, rgba(58,123,213,0.1) 0%, rgba(0,210,255,0.05) 100%);
-            padding: 100px 5% 50px;
+            padding: 120px 5% 50px;
             max-width: 1200px;
             margin: 0 auto;
             gap: 40px;
@@ -101,14 +103,13 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
+            font-size: 3rem;
+            line-height: 1.3;
             margin-bottom: 20px;
         }
 
         .hero-content h1 span {
             color: var(--primary);
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
         }
 
         .hero-content p {
@@ -116,6 +117,7 @@
             color: var(--text-muted);
             margin-bottom: 30px;
             max-width: 500px;
+            line-height: 1.6;
         }
 
         .hero-image {
@@ -127,10 +129,11 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
             border: 2px solid #333;
+            object-fit: cover;
         }
 
         .btn {
@@ -143,14 +146,50 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
             display: inline-block;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 210, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
         }
+
+        /* TENTANG TOKO SECTION (SPANDUK) */
+        .toko-section {
+            padding: 80px 5%;
+            background: var(--card-bg);
+            border-top: 1px solid #222;
+        }
+
+        .toko-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .toko-image {
+            flex: 1;
+        }
+
+        .toko-image img {
+            width: 100%;
+            border-radius: 15px;
+            border: 2px solid #444;
+        }
+
+        .toko-text {
+            flex: 1;
+        }
+
+        .toko-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .toko-text h2 span { color: var(--primary); }
+        .toko-text p { color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
 
         /* KONSULTASI & ESTIMASI BIAYA SECTION */
         .konsultasi-section {
@@ -161,7 +200,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 50px;
         }
         .section-title span { color: var(--primary); }
@@ -170,7 +209,7 @@
             display: flex;
             max-width: 1200px;
             margin: 0 auto;
-            gap: 40px;
+            gap: 0;
             background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
@@ -187,9 +226,9 @@
         }
 
         .price-list h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -200,7 +239,7 @@
             justify-content: space-between;
             padding: 12px 0;
             border-bottom: 1px dashed #444;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .price-item:last-child { border-bottom: none; }
@@ -212,105 +251,91 @@
             padding: 40px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        .form-group { margin-bottom: 20px; }
         .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem;
         }
 
         .form-group select, .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: #121212;
-            border: 1px solid #444;
-            color: #fff;
-            border-radius: 8px;
-            outline: none;
-            transition: 0.3s;
-            font-family: 'Poppins', sans-serif;
+            width: 100%; padding: 12px 15px; background: #121212; border: 1px solid #444;
+            color: #fff; border-radius: 8px; outline: none; transition: 0.3s;
         }
 
         .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+            border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
         }
 
         #estimasiHasil {
-            display: block;
-            margin-top: 10px;
-            padding: 15px;
-            background: rgba(0, 210, 255, 0.1);
-            border-left: 4px solid var(--primary);
-            border-radius: 5px;
-            font-weight: 600;
-            color: var(--primary);
+            display: block; margin-top: 10px; padding: 15px; background: rgba(0, 210, 255, 0.1);
+            border-left: 4px solid var(--primary); border-radius: 5px; font-weight: 600; color: var(--primary);
         }
 
         .btn-wa {
-            width: 100%;
-            background: #25D366; /* Warna khas WA */
-            color: white;
-            font-size: 1.1rem;
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            width: 100%; background: #25D366; color: white; font-size: 1.1rem;
+            margin-top: 10px; padding: 15px; display: flex; justify-content: center;
+            align-items: center; gap: 10px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold;
         }
 
-        .btn-wa:hover {
-            background: #1ebd5a;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
+        .btn-wa:hover { background: #1ebd5a; }
 
-        /* GALERI SECTION */
-        .gallery {
+        /* GALERI HARDWARE SECTION */
+        .gallery-section {
             padding: 80px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .grid-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .grid-gallery img {
+        
+        .gallery-img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-
-        .grid-gallery img:hover {
-            transform: scale(1.05);
-            border-color: var(--primary);
+            border-radius: 15px;
+            border: 2px solid #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
         /* FOOTER */
         footer {
-            background: #0a0a0a;
-            padding: 40px 5%;
-            text-align: center;
-            border-top: 1px solid #333;
+            background: #0a0a0a; padding: 40px 5%; text-align: center; border-top: 1px solid #333;
         }
 
         .footer-text { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;}
 
-        /* RESPONSIVE */
+        /* =========================================
+           RESPONSIVE DESIGN (UNTUK LAYAR HP / MOBILE)
+           ========================================= */
         @media (max-width: 900px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero-content p { margin: 0 auto 30px; }
-            .konsultasi-container { flex-direction: column; }
-            .price-list { border-right: none; border-bottom: 1px solid #333; }
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+                gap: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                margin: 0 auto 20px;
+                font-size: 1rem;
+            }
+            .toko-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .konsultasi-container {
+                flex-direction: column;
+            }
+            .price-list {
+                border-right: none;
+                border-bottom: 1px solid #333;
+                padding: 30px 20px;
+            }
+            .form-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -322,22 +347,38 @@
             <a href="#" class="logo"><i class="fas fa-tools"></i> DTK <span>Cell</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
+                <li><a href="#toko">Toko Kami</a></li>
                 <li><a href="#konsultasi">Estimasi Harga</a></li>
-                <li><a href="#galeri">Galeri</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Menampilkan foto software/unlock tool & HP berjejer) -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Spesialis Servis Android <span>Terpercaya</span></h1>
-            <p>Dari ganti LCD hingga mati total, DTK Cell siap menangani segala kendala HP Anda. Harga jujur, pengerjaan rapi, dan bergaransi khusus area Rokan Hulu & sekitarnya.</p>
+            <h1>Spesialis Hardware & Software <span>Android</span></h1>
+            <p>Mulai dari ganti LCD, mati total, hingga perbaikan software (flashing & unlock). DTK Cell siap menangani gadget Anda dengan profesional.</p>
             <a href="#konsultasi" class="btn">Cek Estimasi Harga <i class="fas fa-chevron-down"></i></a>
         </div>
         <div class="hero-image">
-            <!-- Gambar dari unsplash bertema servis HP -->
-            <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Servis HP Android">
+            <!-- MENGGUNAKAN FOTO 35117.png.jpeg -->
+            <img src="35117.png.jpeg" alt="Servis Software HP">
+        </div>
+    </section>
+
+    <!-- TOKO KAMI SECTION (Menampilkan foto depan toko/spanduk) -->
+    <section id="toko" class="toko-section">
+        <div class="toko-container">
+            <div class="toko-image">
+                <!-- MENGGUNAKAN FOTO 32145.jpg.jpeg -->
+                <img src="32145.jpg.jpeg" alt="Toko DTK Cell">
+            </div>
+            <div class="toko-text">
+                <h2>Kunjungi Toko <span>Kami</span></h2>
+                <p>Kami memiliki lokasi fisik yang jelas untuk menjamin keamanan dan kenyamanan Anda saat memperbaiki HP.</p>
+                <p><strong><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Alamat:</strong> Desa Pasir Agung RW 004, Kabupaten Rokan Hulu, Riau</p>
+                <p><strong><i class="fas fa-phone-alt" style="color:var(--primary)"></i> WhatsApp:</strong> 0852-6384-1766</p>
+            </div>
         </div>
     </section>
 
@@ -348,8 +389,7 @@
         <div class="konsultasi-container">
             <!-- Kiri: Price List -->
             <div class="price-list">
-                <h3><i class="fas fa-tags"></i> Daftar Harga Pasaran</h3>
-                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">*Harga estimasi standar Rokan Hulu, Riau</p>
+                <h3><i class="fas fa-tags"></i> Harga Pasaran Rokan Hulu</h3>
                 
                 <div class="price-item"><span>Ganti LCD / Touchscreen</span> <span>Rp 250k - 350k</span></div>
                 <div class="price-item"><span>Ganti Baterai</span> <span>Rp 200.000</span></div>
@@ -359,14 +399,13 @@
                 <div class="price-item"><span>Ganti Tombol Luar</span> <span>Rp 65.000</span></div>
                 <div class="price-item"><span>Instal Ulang Biasa</span> <span>Rp 50.000</span></div>
                 <div class="price-item"><span>Instal Ulang + Lupa Pola</span> <span>Rp 150.000</span></div>
-                <div class="price-item"><span>Ganti Konektor Cas (Pasaran)</span> <span>Rp 80k - 100k</span></div>
-                <div class="price-item"><span>Servis Mesin/IC (Pasaran)</span> <span>Mulai Rp 200k</span></div>
-                <div class="price-item"><span>Masuk Air (Pasaran)</span> <span>Cek Unit Dulu</span></div>
+                <div class="price-item"><span>Ganti Konektor Cas</span> <span>Rp 80k - 100k</span></div>
+                <div class="price-item"><span>Servis Mesin/IC/Mati Total</span> <span>Cek Unit Dulu</span></div>
             </div>
 
             <!-- Kanan: Form Konsultasi -->
             <div class="form-container">
-                <h3 style="margin-bottom: 20px; font-size: 1.5rem;">Konsultasi Online</h3>
+                <h3 style="margin-bottom: 20px; font-size: 1.3rem;">Konsultasi Online</h3>
                 
                 <div class="form-group">
                     <label>Jenis HP Android Apa?</label>
@@ -377,8 +416,7 @@
                         <option value="Vivo">Vivo</option>
                         <option value="Realme">Realme</option>
                         <option value="Xiaomi">Xiaomi / Redmi</option>
-                        <option value="Infinix">Infinix</option>
-                        <option value="Lainnya">Merk Lainnya (Tulis di Catatan)</option>
+                        <option value="Lainnya">Merk Lainnya</option>
                     </select>
                 </div>
 
@@ -392,11 +430,10 @@
                         <option value="Suntik Baterai" data-harga="Rp 50.000">Suntik Baterai</option>
                         <option value="Ganti Tombol Dalam" data-harga="Rp 65.000">Ganti Tombol Dalam</option>
                         <option value="Ganti Tombol Luar" data-harga="Rp 65.000">Ganti Tombol Luar</option>
-                        <option value="Instal Ulang Biasa" data-harga="Rp 50.000">Instal Ulang Biasa / Lemot</option>
+                        <option value="Instal Ulang Biasa" data-harga="Rp 50.000">Instal Ulang Biasa / Lemot / Virus</option>
                         <option value="Instal Ulang + Lupa Pola" data-harga="Rp 150.000">Instal Ulang + Lupa Pola / Flashing</option>
                         <option value="Konektor Cas Rusak" data-harga="Estimasi Rp 80.000 - Rp 100.000">Tidak Bisa Dicas (Konektor)</option>
                         <option value="Mati Total / Kena Air" data-harga="Harus Cek Unit Terlebih Dahulu">Mati Total / Kena Air</option>
-                        <option value="Kendala Lainnya" data-harga="Menunggu Pengecekan">Kendala Lainnya</option>
                     </select>
                 </div>
 
@@ -407,35 +444,31 @@
                     <textarea id="catatanTambahan" rows="3" placeholder="Misal: Tipe HP Oppo A3s, layarnya bergaris..."></textarea>
                 </div>
 
-                <button class="btn btn-wa" onclick="kirimKeWA()">
+                <button class="btn-wa" onclick="kirimKeWA()">
                     <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- GALERI FOTO SECTION -->
-    <section id="galeri" class="gallery">
-        <h2 class="section-title">Galeri <span>Servis</span></h2>
-        <div class="grid-gallery">
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Motherboard HP">
-            <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bongkar HP">
-            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Chat Whatsapp">
-            <img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sparepart Layar">
-        </div>
+    <!-- GALERI HARDWARE (Menampilkan foto meja servis mikroskop) -->
+    <section class="gallery-section">
+        <h2 class="section-title">Peralatan <span>Profesional</span></h2>
+        <p style="text-align:center; color:var(--text-muted); margin-bottom: 30px; margin-top: -30px;">Didukung dengan peralatan lengkap (Mikroskop, Blower, Multitester) untuk analisis mesin yang akurat.</p>
+        <!-- MENGGUNAKAN FOTO 35122.png.jpeg -->
+        <img src="35122.png.jpeg" alt="Meja Servis Hardware" class="gallery-img">
     </section>
 
     <!-- FOOTER -->
     <footer>
         <h2 style="font-size: 1.5rem;">DTK <span>Cell</span></h2>
-        <p class="footer-text" style="margin-top: 15px;"><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Kabupaten Rokan Hulu, Riau</p>
+        <p class="footer-text" style="margin-top: 15px;"><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Desa Pasir Agung RW 004, Kab. Rokan Hulu, Riau</p>
         <p class="footer-text"><i class="fas fa-phone-alt" style="color:var(--primary)"></i> WA: 0852-6384-1766</p>
         <p class="footer-text" style="margin-top: 30px; opacity: 0.5;">© 2026 DTK Cell. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT UNTUK FITUR WHATSAPP DAN ESTIMASI HARGA -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Fungsi untuk menampilkan harga saat Dropdown dipilih
         function updateEstimasi() {
             var select = document.getElementById("jenisKerusakan");
             var harga = select.options[select.selectedIndex].getAttribute("data-harga");
@@ -449,26 +482,19 @@
             }
         }
 
-        // Fungsi untuk mengirim data ke WhatsApp
         function kirimKeWA() {
             var merk = document.getElementById("merkHp").value;
             var kerusakan = document.getElementById("jenisKerusakan").value;
             var catatan = document.getElementById("catatanTambahan").value;
-            
-            // Mengambil harga dari opsi yang dipilih
             var select = document.getElementById("jenisKerusakan");
             var estimasiBiaya = select.options[select.selectedIndex].getAttribute("data-harga");
 
-            // Validasi jika belum mengisi form
             if (kerusakan === "") {
                 alert("Mohon pilih jenis kerusakan terlebih dahulu!");
                 return;
             }
 
-            // Nomor WA Tujuan (Format harus diawali 62)
             var nomorWA = "6285263841766"; 
-
-            // Format Pesan yang akan dikirim
             var pesan = "Halo *DTK Cell*, saya ingin servis HP.%0A%0A" +
                         "📱 *Merk HP:* " + merk + "%0A" +
                         "⚠️ *Kendala:* " + kerusakan + "%0A" +
@@ -476,11 +502,7 @@
                         "📝 *Catatan Tambahan:* " + (catatan ? catatan : "-") + "%0A%0A" +
                         "Apakah bisa dikerjakan?";
 
-            // Membuat link WA
-            var urlWA = "https://wa.me/" + nomorWA + "?text=" + pesan;
-
-            // Buka di tab baru
-            window.open(urlWA, '_blank');
+            window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
         }
     </script>
 </body>
