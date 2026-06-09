@@ -292,6 +292,49 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
+        /* =========================================
+           KOLOM KOMENTAR SECTION STYLES
+           ========================================= */
+        .komentar-section {
+            padding: 80px 5%;
+            background: var(--card-bg);
+            border-top: 1px solid #222;
+        }
+
+        .komentar-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .komentar-form {
+            background: #121212;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .komentar-form h3 { margin-bottom: 20px; color: #fff; font-size: 1.5rem; }
+
+        .btn-submit-komentar {
+            background: var(--primary); color: #000; font-weight: bold; padding: 12px 25px;
+            border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%; font-size: 1rem;
+        }
+
+        .btn-submit-komentar:hover { background: #00b8e6; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4); }
+        
+        .komentar-list { display: flex; flex-direction: column; gap: 20px; }
+        
+        .komentar-card {
+            background: #1a1a1a; padding: 20px; border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .komentar-header { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #333; padding-bottom: 10px; }
+        .komentar-nama { font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .komentar-waktu { font-size: 0.8rem; color: #666; }
+        .komentar-isi { color: var(--text-light); font-size: 0.95rem; line-height: 1.5; }
+
         /* FOOTER */
         footer {
             background: #0a0a0a; padding: 40px 5%; text-align: center; border-top: 1px solid #333;
@@ -336,6 +379,9 @@
             .form-container {
                 padding: 30px 20px;
             }
+            .komentar-form {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -349,11 +395,12 @@
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#toko">Toko Kami</a></li>
                 <li><a href="#konsultasi">Estimasi Harga</a></li>
+                <li><a href="#ulasan">Ulasan</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION (Menampilkan foto software/unlock tool & HP berjejer) -->
+    <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Spesialis Hardware & Software <span>Android</span></h1>
@@ -361,16 +408,14 @@
             <a href="#konsultasi" class="btn">Cek Estimasi Harga <i class="fas fa-chevron-down"></i></a>
         </div>
         <div class="hero-image">
-            <!-- MENGGUNAKAN FOTO 35117.png.jpeg -->
             <img src="35117.png.jpeg" alt="Servis Software HP">
         </div>
     </section>
 
-    <!-- TOKO KAMI SECTION (Menampilkan foto depan toko/spanduk) -->
+    <!-- TOKO KAMI SECTION -->
     <section id="toko" class="toko-section">
         <div class="toko-container">
             <div class="toko-image">
-                <!-- MENGGUNAKAN FOTO 32145.jpg.jpeg -->
                 <img src="32145.jpg.jpeg" alt="Toko DTK Cell">
             </div>
             <div class="toko-text">
@@ -451,12 +496,37 @@
         </div>
     </section>
 
-    <!-- GALERI HARDWARE (Menampilkan foto meja servis mikroskop) -->
+    <!-- GALERI HARDWARE -->
     <section class="gallery-section">
         <h2 class="section-title">Peralatan <span>Profesional</span></h2>
         <p style="text-align:center; color:var(--text-muted); margin-bottom: 30px; margin-top: -30px;">Didukung dengan peralatan lengkap (Mikroskop, Blower, Multitester) untuk analisis mesin yang akurat.</p>
-        <!-- MENGGUNAKAN FOTO 35122.png -->
         <img src="35122.png" alt="Meja Servis Hardware" class="gallery-img">
+    </section>
+
+    <!-- KOLOM KOMENTAR SECTION -->
+    <section id="ulasan" class="komentar-section">
+        <h2 class="section-title">Ulasan <span>Pengunjung</span></h2>
+        
+        <div class="komentar-container">
+            <!-- Form Input Komentar -->
+            <div class="komentar-form">
+                <h3>Tinggalkan Pesan / Ulasan</h3>
+                <div class="form-group">
+                    <label>Nama Anda (Wajib)</label>
+                    <input type="text" id="namaKomentator" placeholder="Masukkan nama Anda..." required>
+                </div>
+                <div class="form-group">
+                    <label>Komentar</label>
+                    <textarea id="isiKomentar" rows="4" placeholder="Tuliskan pengalaman servis atau pertanyaan Anda..." required></textarea>
+                </div>
+                <button onclick="tambahKomentar()" class="btn-submit-komentar"><i class="fas fa-paper-plane"></i> Kirim Komentar</button>
+            </div>
+
+            <!-- Area Tampil Komentar -->
+            <div id="daftarKomentar" class="komentar-list">
+                <!-- Komentar akan muncul di sini otomatis lewat JavaScript -->
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -469,41 +539,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // Fitur Estimasi Harga
         function updateEstimasi() {
             var select = document.getElementById("jenisKerusakan");
-            var harga = select.options[select.selectedIndex].getAttribute("data-harga");
-            var estimasiBox = document.getElementById("estimasiHasil");
-
-            if(harga) {
-                estimasiBox.style.display = "block";
-                estimasiBox.innerHTML = "Perkiraan Biaya: <b>" + harga + "</b>";
-            } else {
-                estimasiBox.style.display = "none";
-            }
-        }
-
-        function kirimKeWA() {
-            var merk = document.getElementById("merkHp").value;
-            var kerusakan = document.getElementById("jenisKerusakan").value;
-            var catatan = document.getElementById("catatanTambahan").value;
-            var select = document.getElementById("jenisKerusakan");
-            var estimasiBiaya = select.options[select.selectedIndex].getAttribute("data-harga");
-
-            if (kerusakan === "") {
-                alert("Mohon pilih jenis kerusakan terlebih dahulu!");
-                return;
-            }
-
-            var nomorWA = "6285263841766"; 
-            var pesan = "Halo *DTK Cell*, saya ingin servis HP.%0A%0A" +
-                        "📱 *Merk HP:* " + merk + "%0A" +
-                        "⚠️ *Kendala:* " + kerusakan + "%0A" +
-                        "💰 *Estimasi Biaya di Web:* " + estimasiBiaya + "%0A%0A" +
-                        "📝 *Catatan Tambahan:* " + (catatan ? catatan : "-") + "%0A%0A" +
-                        "Apakah bisa dikerjakan?";
-
-            window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
-        }
-    </script>
-</body>
-</html>
+            var harga =
