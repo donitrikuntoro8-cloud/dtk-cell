@@ -11,377 +11,94 @@
     
     <style>
         /* CSS RESET & VARIABLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #ffffff;
-            --text-muted: #b3b3b3;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        :root { --primary: #00d2ff; --secondary: #3a7bd5; --dark-bg: #121212; --card-bg: #1e1e1e; --text-light: #ffffff; --text-muted: #b3b3b3; }
+        body { background-color: var(--dark-bg); color: var(--text-light); scroll-behavior: smooth; overflow-x: hidden; }
 
         /* NAVBAR */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap; /* Agar rapi di HP */
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        header { position: fixed; width: 100%; top: 0; background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #333; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--text-light); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
         .logo i { color: var(--primary); }
         .logo span { color: var(--primary); }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 400;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 400; transition: 0.3s; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--primary); }
 
         /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, rgba(58,123,213,0.1) 0%, rgba(0,210,255,0.05) 100%);
-            padding: 120px 5% 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(58,123,213,0.1) 0%, rgba(0,210,255,0.05) 100%); padding: 120px 5% 50px; max-width: 1200px; margin: 0 auto; gap: 40px; }
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-size: 3rem; line-height: 1.3; margin-bottom: 20px; }
+        .hero-content h1 span { color: var(--primary); }
+        .hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; max-width: 500px; line-height: 1.6; }
+        .hero-image { flex: 1; display: flex; justify-content: center; position: relative; }
+        .hero-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2); border: 2px solid #333; object-fit: cover; }
+        .btn { padding: 12px 30px; background: linear-gradient(45deg, var(--secondary), var(--primary)); color: #fff; text-decoration: none; border-radius: 30px; font-weight: 600; transition: 0.3s; border: none; cursor: pointer; display: inline-block; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4); }
 
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            line-height: 1.3;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 span {
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-            border: 2px solid #333;
-            object-fit: cover;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
-        }
-
-        /* TENTANG TOKO SECTION (SPANDUK) */
-        .toko-section {
-            padding: 80px 5%;
-            background: var(--card-bg);
-            border-top: 1px solid #222;
-        }
-
-        .toko-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .toko-image {
-            flex: 1;
-        }
-
-        .toko-image img {
-            width: 100%;
-            border-radius: 15px;
-            border: 2px solid #444;
-        }
-
-        .toko-text {
-            flex: 1;
-        }
-
-        .toko-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
+        /* TOKO SECTION */
+        .toko-section { padding: 80px 5%; background: var(--card-bg); border-top: 1px solid #222; }
+        .toko-container { display: flex; max-width: 1200px; margin: 0 auto; align-items: center; gap: 40px; }
+        .toko-image { flex: 1; }
+        .toko-image img { width: 100%; border-radius: 15px; border: 2px solid #444; }
+        .toko-text { flex: 1; }
+        .toko-text h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .toko-text h2 span { color: var(--primary); }
         .toko-text p { color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
 
-        /* KONSULTASI & ESTIMASI BIAYA SECTION */
-        .konsultasi-section {
-            padding: 80px 5%;
-            background: #0f0f0f;
-            border-top: 1px solid #222;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-        }
+        /* KONSULTASI SECTION */
+        .konsultasi-section { padding: 80px 5%; background: #0f0f0f; border-top: 1px solid #222; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; }
         .section-title span { color: var(--primary); }
-
-        .konsultasi-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 0;
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* Daftar Harga / Kiri */
-        .price-list {
-            flex: 1;
-            padding: 40px;
-            background: linear-gradient(to bottom, #1a1a1a, #121212);
-            border-right: 1px solid #333;
-        }
-
-        .price-list h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px dashed #444;
-            font-size: 0.9rem;
-        }
-
+        .konsultasi-container { display: flex; max-width: 1200px; margin: 0 auto; gap: 0; background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .price-list { flex: 1; padding: 40px; background: linear-gradient(to bottom, #1a1a1a, #121212); border-right: 1px solid #333; }
+        .price-list h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .price-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #444; font-size: 0.9rem; }
         .price-item:last-child { border-bottom: none; }
         .price-item span:last-child { font-weight: 600; color: #fff; }
 
-        /* Form / Kanan */
-        .form-container {
-            flex: 1;
-            padding: 40px;
-        }
-
+        .form-container { flex: 1; padding: 40px; }
         .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem;
-        }
-
-        .form-group select, .form-group input, .form-group textarea {
-            width: 100%; padding: 12px 15px; background: #121212; border: 1px solid #444;
-            color: #fff; border-radius: 8px; outline: none; transition: 0.3s;
-        }
-
-        .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
-        }
-
-        #estimasiHasil {
-            display: block; margin-top: 10px; padding: 15px; background: rgba(0, 210, 255, 0.1);
-            border-left: 4px solid var(--primary); border-radius: 5px; font-weight: 600; color: var(--primary);
-        }
-
-        .btn-wa {
-            width: 100%; background: #25D366; color: white; font-size: 1.1rem;
-            margin-top: 10px; padding: 15px; display: flex; justify-content: center;
-            align-items: center; gap: 10px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold;
-        }
-
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-group select, .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; background: #121212; border: 1px solid #444; color: #fff; border-radius: 8px; outline: none; transition: 0.3s; }
+        .form-group select:focus, .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 210, 255, 0.2); }
+        
+        #estimasiHasil { display: block; margin-top: 10px; padding: 15px; background: rgba(0, 210, 255, 0.1); border-left: 4px solid var(--primary); border-radius: 5px; font-weight: 600; color: var(--primary); }
+        
+        .btn-wa { width: 100%; background: #25D366; color: white; font-size: 1.1rem; margin-top: 10px; padding: 15px; display: flex; justify-content: center; align-items: center; gap: 10px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; }
         .btn-wa:hover { background: #1ebd5a; }
 
-        /* GALERI HARDWARE SECTION */
-        .gallery-section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .gallery-img {
-            width: 100%;
-            border-radius: 15px;
-            border: 2px solid #333;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
+        /* GALERI SECTION */
+        .gallery-section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .gallery-img { width: 100%; border-radius: 15px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-        /* =========================================
-           KOLOM KOMENTAR SECTION STYLES
-           ========================================= */
-        .komentar-section {
-            padding: 80px 5%;
-            background: var(--card-bg);
-            border-top: 1px solid #222;
-        }
-
-        .komentar-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .komentar-form {
-            background: #121212;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
-            margin-bottom: 40px;
-        }
-
+        /* KOMENTAR SECTION */
+        .komentar-section { padding: 80px 5%; background: var(--card-bg); border-top: 1px solid #222; }
+        .komentar-container { max-width: 800px; margin: 0 auto; }
+        .komentar-form { background: #121212; padding: 30px; border-radius: 15px; border: 1px solid #333; margin-bottom: 40px; }
         .komentar-form h3 { margin-bottom: 20px; color: #fff; font-size: 1.5rem; }
-
-        .btn-submit-komentar {
-            background: var(--primary); color: #000; font-weight: bold; padding: 12px 25px;
-            border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%; font-size: 1rem;
-        }
-
+        .btn-submit-komentar { background: var(--primary); color: #000; font-weight: bold; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%; font-size: 1rem; }
         .btn-submit-komentar:hover { background: #00b8e6; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4); }
-        
         .komentar-list { display: flex; flex-direction: column; gap: 20px; }
-        
-        .komentar-card {
-            background: #1a1a1a; padding: 20px; border-radius: 10px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .komentar-header { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #333; padding-bottom: 10px; }
+        .komentar-card { background: #1a1a1a; padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary); }
+        .komentar-header { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #333; padding-bottom: 10px; flex-wrap: wrap; gap: 10px;}
         .komentar-nama { font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-        .komentar-waktu { font-size: 0.8rem; color: #666; }
-        .komentar-isi { color: var(--text-light); font-size: 0.95rem; line-height: 1.5; }
+        .komentar-waktu { font-size: 0.85rem; color: #888; background: #222; padding: 5px 10px; border-radius: 5px; }
+        .komentar-isi { color: var(--text-light); font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
 
         /* FOOTER */
-        footer {
-            background: #0a0a0a; padding: 40px 5%; text-align: center; border-top: 1px solid #333;
-        }
-
+        footer { background: #0a0a0a; padding: 40px 5%; text-align: center; border-top: 1px solid #333; }
         .footer-text { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;}
 
-        /* =========================================
-           RESPONSIVE DESIGN (UNTUK LAYAR HP / MOBILE)
-           ========================================= */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                margin-top: 15px;
-            }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 140px;
-                gap: 30px;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-content p {
-                margin: 0 auto 20px;
-                font-size: 1rem;
-            }
-            .toko-container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .konsultasi-container {
-                flex-direction: column;
-            }
-            .price-list {
-                border-right: none;
-                border-bottom: 1px solid #333;
-                padding: 30px 20px;
-            }
-            .form-container {
-                padding: 30px 20px;
-            }
-            .komentar-form {
-                padding: 20px;
-            }
+            .nav-links { width: 100%; justify-content: center; margin-top: 15px; }
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; gap: 30px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .toko-container, .konsultasi-container { flex-direction: column; }
+            .toko-container { flex-direction: column-reverse; text-align: center; }
+            .price-list { border-right: none; border-bottom: 1px solid #333; padding: 30px 20px; }
+            .form-container, .komentar-form { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -435,7 +152,6 @@
             <!-- Kiri: Price List -->
             <div class="price-list">
                 <h3><i class="fas fa-tags"></i> Harga Pasaran Rokan Hulu</h3>
-                
                 <div class="price-item"><span>Ganti LCD / Touchscreen</span> <span>Rp 250.000 - 400.000</span></div>
                 <div class="price-item"><span>Ganti Baterai</span> <span>Rp 200.000-300.000</span></div>
                 <div class="price-item"><span>Fuse Baterai</span> <span>Rp 80.000</span></div>
@@ -451,7 +167,6 @@
             <!-- Kanan: Form Konsultasi -->
             <div class="form-container">
                 <h3 style="margin-bottom: 20px; font-size: 1.3rem;">Konsultasi Online</h3>
-                
                 <div class="form-group">
                     <label>Jenis HP Android Apa?</label>
                     <select id="merkHp">
@@ -489,7 +204,7 @@
                     <textarea id="catatanTambahan" rows="3" placeholder="Misal: Tipe HP Oppo A3s, layarnya bergaris..."></textarea>
                 </div>
 
-                <button class="btn-wa" onclick="kirimKeWA()">
+                <button type="button" class="btn-wa" onclick="kirimKeWA()">
                     <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                 </button>
             </div>
@@ -519,7 +234,9 @@
                     <label>Komentar</label>
                     <textarea id="isiKomentar" rows="4" placeholder="Tuliskan pengalaman servis atau pertanyaan Anda..." required></textarea>
                 </div>
-                <button onclick="tambahKomentar()" class="btn-submit-komentar"><i class="fas fa-paper-plane"></i> Kirim Komentar</button>
+                <button type="button" onclick="tambahKomentar()" class="btn-submit-komentar">
+                    <i class="fas fa-paper-plane"></i> Kirim Komentar
+                </button>
             </div>
 
             <!-- Area Tampil Komentar -->
@@ -537,9 +254,120 @@
         <p class="footer-text" style="margin-top: 30px; opacity: 0.5;">© 2026 DTK Cell. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- ==============================================
+         JAVASCRIPT LENGKAP (INI YANG SEBELUMNYA HILANG)
+         ============================================== -->
     <script>
-        // Fitur Estimasi Harga
+        // 1. Fungsi Memunculkan Estimasi Harga
         function updateEstimasi() {
             var select = document.getElementById("jenisKerusakan");
-            var harga =
+            
+            // Cegah error jika belum ada yang dipilih
+            if(select.selectedIndex === -1) return;
+
+            var harga = select.options[select.selectedIndex].getAttribute("data-harga");
+            var estimasiBox = document.getElementById("estimasiHasil");
+
+            if(harga) {
+                estimasiBox.style.display = "block";
+                estimasiBox.innerHTML = "Perkiraan Biaya: <b>" + harga + "</b>";
+            } else {
+                estimasiBox.style.display = "none";
+            }
+        }
+
+        // 2. Fungsi Mengirim Pesan ke WhatsApp
+        function kirimKeWA() {
+            var merk = document.getElementById("merkHp").value;
+            var kerusakan = document.getElementById("jenisKerusakan").value;
+            var catatan = document.getElementById("catatanTambahan").value;
+            var select = document.getElementById("jenisKerusakan");
+
+            if (kerusakan === "") {
+                alert("Mohon pilih jenis kerusakan terlebih dahulu!");
+                return;
+            }
+
+            var estimasiBiaya = select.options[select.selectedIndex].getAttribute("data-harga");
+            var nomorWA = "6285263841766"; 
+            var pesan = "Halo *DTK Cell*, saya ingin servis HP.%0A%0A" +
+                        "📱 *Merk HP:* " + merk + "%0A" +
+                        "⚠️ *Kendala:* " + kerusakan + "%0A" +
+                        "💰 *Estimasi Biaya di Web:* " + estimasiBiaya + "%0A%0A" +
+                        "📝 *Catatan Tambahan:* " + (catatan ? catatan : "-") + "%0A%0A" +
+                        "Apakah bisa dikerjakan?";
+
+            window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
+        }
+
+        // 3. Fungsi Sistem Komentar
+        window.onload = function() {
+            tampilkanKomentar();
+        };
+
+        function tambahKomentar() {
+            var inputNama = document.getElementById("namaKomentator");
+            var inputIsi = document.getElementById("isiKomentar");
+            var nama = inputNama.value;
+            var isi = inputIsi.value;
+
+            if (nama.trim() === "" || isi.trim() === "") {
+                alert("Peringatan: Nama dan komentar wajib diisi!");
+                return;
+            }
+
+            // Mendapatkan Tanggal & Jam (Format: DD/MM/YYYY | Jam HH:MM WIB)
+            var date = new Date();
+            var hari = String(date.getDate()).padStart(2, '0');
+            var bulan = String(date.getMonth() + 1).padStart(2, '0'); 
+            var tahun = date.getFullYear();
+            var jam = String(date.getHours()).padStart(2, '0');
+            var menit = String(date.getMinutes()).padStart(2, '0');
+            
+            var waktuKomentar = `${hari}/${bulan}/${tahun} | Jam ${jam}:${menit} WIB`;
+
+            var komentarBaru = {
+                nama: nama,
+                isi: isi,
+                tanggal: waktuKomentar
+            };
+
+            var dataKomentar = JSON.parse(localStorage.getItem('komentarDTK')) || [];
+            dataKomentar.unshift(komentarBaru); 
+
+            localStorage.setItem('komentarDTK', JSON.stringify(dataKomentar));
+
+            inputNama.value = "";
+            inputIsi.value = "";
+
+            alert("Komentar berhasil dikirim!");
+            tampilkanKomentar();
+        }
+
+        function tampilkanKomentar() {
+            var daftarKomentarDiv = document.getElementById("daftarKomentar");
+            var dataKomentar = JSON.parse(localStorage.getItem('komentarDTK')) || [];
+
+            if (dataKomentar.length === 0) {
+                daftarKomentarDiv.innerHTML = "<p style='text-align:center; color:#666;'>Belum ada ulasan. Jadilah yang pertama berkomentar!</p>";
+                return;
+            }
+
+            daftarKomentarDiv.innerHTML = "";
+
+            dataKomentar.forEach(function(item) {
+                var cardHTML = `
+                    <div class="komentar-card">
+                        <div class="komentar-header">
+                            <div class="komentar-nama"><i class="fas fa-user-circle"></i> ${item.nama}</div>
+                            <div class="komentar-waktu"><i class="far fa-clock"></i> ${item.tanggal}</div>
+                        </div>
+                        <div class="komentar-isi">${item.isi}</div>
+                    </div>
+                `;
+                daftarKomentarDiv.innerHTML += cardHTML;
+            });
+        }
+    </script>
+</body>
+</html>
